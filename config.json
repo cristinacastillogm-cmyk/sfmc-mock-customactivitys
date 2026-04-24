@@ -7,8 +7,8 @@
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "Send to Caleida",
-      "description": "Envía lead a Caleida (WhatsApp IA)"
+      "name": "Synthflow",
+      "description": "Enviar a Synthflow"
     }
   },
   "arguments": {
