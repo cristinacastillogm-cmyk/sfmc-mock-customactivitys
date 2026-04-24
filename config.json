@@ -1,7 +1,7 @@
 {
   "workflowApiVersion": "1.1",
   "metaData": {
-    "icon": "https://sfmc-mock-customactivityys-1.onrender.com/iconook.png",
+    "icon": "https://sfmc-mock-customactivitys-1.onrender.com/iconook.png",
     "category": "message"
   },
   "type": "REST",
