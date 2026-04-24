@@ -1,0 +1,30 @@
+{
+  "workflowApiVersion": "1.1",
+  "metaData": {
+    "icon": "https://via.placeholder.com/40",
+    "category": "message"
+  },
+  "type": "REST",
+  "lang": {
+    "en-US": {
+      "name": "Send to Caleida",
+      "description": "Envía lead a Caleida (WhatsApp IA)"
+    }
+  },
+  "arguments": {
+    "execute": {
+      "inArguments": [
+        { "contactKey": "{{Contact.Key}}" },
+        { "phone": "{{Contact.Attribute.DE.Phone}}" },
+        { "name": "{{Contact.Attribute.DE.Name}}" }
+      ],
+      "url": "https://TU-SERVIDOR.com/execute",
+      "verb": "POST",
+      "format": "json",
+      "timeout": 10000
+    }
+  },
+  "configurationArguments": {
+    "applicationExtensionKey": "caleida-activity"
+  }
+}
