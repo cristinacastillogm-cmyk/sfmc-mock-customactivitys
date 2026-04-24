@@ -2,25 +2,42 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Esta línea sirve los archivos que están en la raíz (como config.json)
-app.use(express.static(path.join(__dirname, '/')));
-
-// Esta línea sirve los archivos que están en la carpeta public
-app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(express.json());
 
-// Ruta para ver si el servidor responde
-app.get('/', (req, res) => {
-    res.send('El servidor está vivo. Intenta entrar a /config.json');
+// Servir archivos estáticos desde /public
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Lifecycle endpoints requeridos por SFMC Journey Builder
+app.post('/execute', (req, res) => {
+  console.log('Execute:', JSON.stringify(req.body, null, 2));
+  res.status(200).json({ status: 'ok' });
 });
 
-app.post('/execute', (req, res) => res.status(200).send({ status: 'ok' }));
-app.post('/save', (req, res) => res.status(200).send({ status: 'ok' }));
-app.post('/publish', (req, res) => res.status(200).send({ status: 'ok' }));
-app.post('/validate', (req, res) => res.status(200).send({ status: 'ok' }));
-
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`Servidor en puerto ${port}`);
+app.post('/save', (req, res) => {
+  console.log('Save:', JSON.stringify(req.body, null, 2));
+  res.status(200).json({ status: 'ok' });
 });
+
+app.post('/publish', (req, res) => {
+  console.log('Publish:', JSON.stringify(req.body, null, 2));
+  res.status(200).json({ status: 'ok' });
+});
+
+app.post('/validate', (req, res) => {
+  console.log('Validate:', JSON.stringify(req.body, null, 2));
+  // Debe devolver { valid: true } para que SFMC no marque error
+  res.status(200).json({ valid: true });
+});
+
+app.post('/stop', (req, res) => {
+  console.log('Stop:', JSON.stringify(req.body, null, 2));
+  res.status(200).json({ status: 'ok' });
+});
+
+// config.json accesible en la raíz
+app.get('/config.json', (req, res) => {
+  res.sendFile(path.join(__dirname, 'config.json'));
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Servidor funcionando en puerto ${PORT}`));
