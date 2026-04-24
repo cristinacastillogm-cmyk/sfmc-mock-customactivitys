@@ -18,34 +18,40 @@
         { "phone": "{{Contact.Attribute.DE.Phone}}" },
         { "name": "{{Contact.Attribute.DE.Name}}" }
       ],
-      "url": "https://sfmc-mock-customactivityys-1.onrender.com/execute",
+      "url": "https://sfmc-mock-customactivitys-1.onrender.com/execute",
       "verb": "POST",
       "format": "json",
       "timeout": 10000
     }
   },
   "configurationArguments": {
+    "applicationExtensionKey": "caleida-activity",
     "save": {
-      "url": "https://sfmc-mock-customactivityys-1.onrender.com/save",
-      "verb": "POST"
+      "url": "https://sfmc-mock-customactivitys-1.onrender.com/save",
+      "verb": "POST",
+      "format": "json"
     },
     "publish": {
-      "url": "https://sfmc-mock-customactivityys-1.onrender.com/publish",
-      "verb": "POST"
+      "url": "https://sfmc-mock-customactivitys-1.onrender.com/publish",
+      "verb": "POST",
+      "format": "json"
     },
     "validate": {
-      "url": "https://sfmc-mock-customactivityys-1.onrender.com/validate",
-      "verb": "POST"
+      "url": "https://sfmc-mock-customactivitys-1.onrender.com/validate",
+      "verb": "POST",
+      "format": "json"
+    },
+    "stop": {
+      "url": "https://sfmc-mock-customactivitys-1.onrender.com/stop",
+      "verb": "POST",
+      "format": "json"
     }
   },
-  "wizardSteps": [
-    { "label": "Configurar", "key": "step1" }
-  ],
   "userInterfaces": {
     "configModal": {
-      "height": 400,
-      "width": 1000,
-      "fullscreen": false
+      "url": "https://sfmc-mock-customactivitys-1.onrender.com/index.html",
+      "height": 200,
+      "width": 300
     }
   }
 }
