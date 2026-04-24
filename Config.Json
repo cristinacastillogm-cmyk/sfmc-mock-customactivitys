@@ -18,7 +18,7 @@
         { "phone": "{{Contact.Attribute.DE.Phone}}" },
         { "name": "{{Contact.Attribute.DE.Name}}" }
       ],
-      "url": "https://TU-SERVIDOR.com/execute",
+      "url": "https://sfmc-mock-customactivitys-1.onrender.com",
       "verb": "POST",
       "format": "json",
       "timeout": 10000
